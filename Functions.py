@@ -110,7 +110,7 @@ def decrypt(key):
     os.remove("pg_chk_fls/enc_login_credentials.xlsx")
 
 
-def gen(length):
+def gen(length = 16):
     small = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
              'v',
              'w', 'x', 'y', 'z']
