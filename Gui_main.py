@@ -1,11 +1,12 @@
 import tkinter as tk
 import customtkinter as ctk
+from pages import generate as gn
 import Functions as fn
 from tkinter import messagebox as mb
 import pyperclip as pp
 
 
-def gen_page():
+'''def gen_page():
     def generate():
         if int(len_entry.get()) >= 16:
             size = len_entry.get()
@@ -25,13 +26,13 @@ def gen_page():
     label = tk.Label(master=gen_frame,
                      text="Generate Password",
                      font=('Century Gothic', 50, 'bold'))
-    label.pack()
+    label.pack(side=tk.TOP)
 
     len_lab = tk.Label(master=gen_frame,
                        text="Enter the length \n (more than 16 characters is considered a strong password !)",
                        font=('Century Gothic', 14))
-    len_lab.place(x=235, y=190)
-    len_lab.pack()
+    len_lab.place()
+    len_lab.pack(padx=.5, pady=.5)
     len_entry = ctk.CTkEntry(gen_frame,
                              placeholder_text="~ <16 ~",
                              width=230)
@@ -56,13 +57,15 @@ def gen_page():
     lab_show.pack()
     copy_state = tk.Label(master=gen_frame,
                           text='',
-                          font=('Century Gothic', 30),
+                          font=('Century Gothic', 25),
                           width=230,
                           height=30)
 
     copy_state.place(x=58, y=550)
     copy_state.pack()
     gen_frame.pack()
+
+'''
 
 
 def show_ind(lb, page):
@@ -91,15 +94,6 @@ right_frame.pack_propagate(False)
 right_frame.configure(width=880, height=720)
 # right_frame.place()
 
-
-'''tit = ctk.CTkLabel(
-    master=right_frame,
-    text="Password Checker-v2.0",
-    font=('Century Gothic', 50, 'bold'))
-tit.place(x=180, y=40)
-# tit.pack()'''
-
-
 left_frame = tk.Frame(master=window,
                       bg="#c3c3c3")
 
@@ -111,7 +105,7 @@ left_frame.configure(width=200,
 generate_but = ctk.CTkButton(
     left_frame,
     text="Generate",
-    command=lambda: show_ind(gen_ind, gen_page))
+    command=lambda: show_ind(gen_ind, gn.gen_page))
 generate_but.place(x=30, y=220)
 
 check_but = ctk.CTkButton(
