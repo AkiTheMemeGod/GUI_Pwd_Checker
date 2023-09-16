@@ -144,7 +144,7 @@ def gen(length):
         i += 1
 
     # print(pwd)
-    pwd = pwd + "\n"
+
     return pwd
 
 

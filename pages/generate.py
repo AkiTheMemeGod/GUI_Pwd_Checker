@@ -8,13 +8,15 @@ from tkinter import *
 
 def gen_page():
     def generate():
+        size = int(len_entry.get())
         try:
-            if int(len_entry.get()) >= 16:
-                size = len_entry.get()
+            if size >= 16:
+                global gen_pass
                 gen_pass = fn.gen(size)
-                lab_show.configure(text=gen_pass)
-                pp.copy(gen_pass)
-                copy_state.configure(text="Password Successfully Copied into the clipboard ✅")
+                print(gen_pass)
+                lab_show.config(text="***********************************************************")
+                # lab_show.config(width=size + 4)
+                copy_state.configure(text='')
 
             else:
                 mb.showwarning(title="Warning !",
@@ -23,6 +25,19 @@ def gen_page():
             mb.showwarning(title="Warning !",
                            message="Invalid input")
 
+    def copy():
+        pp.copy(gen_pass)
+        copy_state.configure(text="Password Successfully Copied into the clipboard ✅")
+
+    def show(gen_pass):
+        print(lab_show.cget('text'))
+        print(gen_pass)
+        if lab_show.cget('text') == gen_pass:
+            lab_show.config(text="***********************************************************")
+            eye_but.configure(image=eye_open)
+        else:
+            lab_show.config(text=gen_pass)
+            eye_but.configure(image=eye_close)
 
     ctk.set_default_color_theme("green")
     ctk.set_appearance_mode("light")
@@ -30,6 +45,10 @@ def gen_page():
     gen_win.title("Password Checker v2.0")
     gen_win.geometry("880x720")
 
+    eye_close = PhotoImage(file="invisible.png")
+    eye_open = PhotoImage(file="view.png")
+    copy_but = PhotoImage(file="clipboard.png")
+    # but_state = eye_close
     label = ctk.CTkLabel(gen_win,
                          text="Generate Password",
                          font=('Century Gothic', 50, 'bold'))
@@ -54,28 +73,40 @@ def gen_page():
         height=60)
     gen_but.place(x=350, y=310)
 
-    lab_show = ctk.CTkLabel(gen_win,
-                            text='',
-                            font=('Impact', 28, 'bold'),
-                            width=230,
-                            height=30)
-    lab_show.place(x=200, y=450)
+    lab_show = Label(master=gen_win,
+                     text='',
+                     font=('Impact', 21, 'italic'),
+                     width=45)
 
-    eye_close = PhotoImage(file='assets/view.png')
-    eye_but = ctk.CTkButton(gen_win,
-                            image=eye_close,
-                            )
-    eye_but.pack(padx=20)
+    lab_show.place(x=140, y=410)
+    # lab_show.pack(padx=170,pady=390)
 
+    eye_but = Button(gen_win,
+                     image=eye_open,
+                     width=60,
+                     height=60,
+                     borderwidth=0,
+                     bg='#ebebeb',
+                     command=lambda: show(gen_pass))
+    eye_but.place(x=540, y=310)
+
+    copy_button = Button(master=gen_win,
+                         image=copy_but,
+                         width=50,
+                         height=50,
+                         borderwidth=0,
+                         bg="#ebebeb",
+                         command=copy)
+    copy_button.place(x=290, y=310)
     copy_state = ctk.CTkLabel(gen_win,
                               text='',
                               font=('Century Gothic', 30),
                               width=230,
-                              height=30)
+                              height=30, )
 
     copy_state.place(x=58, y=550)
-
+    print(eye_but.cget('image'))
     gen_win.mainloop()
 
 
-gen_page()
+
