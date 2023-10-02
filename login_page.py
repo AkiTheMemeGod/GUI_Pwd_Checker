@@ -86,3 +86,5 @@ if __name__ == '__main__':
         font=('Century Gothic', 10))
     l3.place(x=980, y=690)
     app.mainloop()
+
+# checking the git functions
