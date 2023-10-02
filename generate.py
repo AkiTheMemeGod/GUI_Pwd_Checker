@@ -4,6 +4,73 @@ from tkinter import messagebox as mb
 import pyperclip as pp
 import tkinter as tk
 from tkinter import *
+global gen_pass
+
+
+def check_page():
+    def check():
+        password = str(len_entry.get())
+        x, pass_list = fn.checker(password)
+        print(pass_list)
+        sec_pass.configure(text=pass_list)
+
+    ctk.set_default_color_theme("green")
+    ctk.set_appearance_mode("light")
+    check_win = ctk.CTk()
+    check_win.title("Password Checker v2.0")
+    check_win.geometry("880x720")
+
+    back_but = PhotoImage(file="back.png")
+    next_but = PhotoImage(file="next.png")
+
+    label = ctk.CTkLabel(check_win,
+                         text="Check Your Password",
+                         font=('Century Gothic', 50, 'bold'))
+    label.pack()
+
+    back_button = Button(check_win,
+                         image=back_but,
+                         width=60,
+                         height=60,
+                         borderwidth=0,
+                         bg='#ebebeb')
+    back_button.place(x=30, y=20)
+
+    next_button = Button(check_win,
+                         image=next_but,
+                         width=60,
+                         height=60,
+                         borderwidth=0,
+                         bg='#ebebeb')
+    next_button.place(x=800, y=20)
+
+    len_lab = ctk.CTkLabel(check_win,
+                           text="\t      Enter your password and Check",
+                           font=('Century Gothic', 14))
+    len_lab.place(x=235, y=220)
+
+    gen_but = ctk.CTkButton(
+        check_win,
+        text="Check",
+        font=('Impact', 40),
+        width=150,
+        height=60,
+        hover_color="red",
+        command=check)
+    gen_but.place(x=350, y=310)
+
+    len_entry = ctk.CTkEntry(check_win,
+                             placeholder_text="~ <16 ~",
+                             width=230)
+    len_entry.place(x=320, y=260)
+
+    sec_pass = Label(text='',
+                     width=40,
+                     font=("impact", 10),
+                     bg="#ebebeb")
+    sec_pass.place(x=300, y=370)
+
+    check_win.mainloop()
 
 
 def gen_page():
@@ -29,9 +96,11 @@ def gen_page():
         pp.copy(gen_pass)
         copy_state.configure(text="Password Successfully Copied into the clipboard ✅")
 
+    def prev():
+        gen_win.destroy()
+        check_page()
+
     def show(gen_pass):
-        print(lab_show.cget('text'))
-        print(gen_pass)
         if lab_show.cget('text') == gen_pass:
             lab_show.config(text="***********************************************************")
             eye_but.configure(image=eye_open)
@@ -48,11 +117,30 @@ def gen_page():
     eye_close = PhotoImage(file="invisible.png")
     eye_open = PhotoImage(file="view.png")
     copy_but = PhotoImage(file="clipboard.png")
+    back_but = PhotoImage(file="back.png")
+    next_but = PhotoImage(file="next.png")
     # but_state = eye_close
     label = ctk.CTkLabel(gen_win,
                          text="Generate Password",
                          font=('Century Gothic', 50, 'bold'))
     label.pack()
+
+    back_button = Button(gen_win,
+                         image=back_but,
+                         width=60,
+                         height=60,
+                         borderwidth=0,
+                         bg='#ebebeb',
+                         command=prev)
+    back_button.place(x=30, y=20)
+
+    next_button = Button(gen_win,
+                         image=next_but,
+                         width=60,
+                         height=60,
+                         borderwidth=0,
+                         bg='#ebebeb')
+    next_button.place(x=800, y=20)
 
     len_lab = ctk.CTkLabel(gen_win,
                            text="Enter the length \n (more than 16 characters is considered a strong password !)",
@@ -76,7 +164,8 @@ def gen_page():
     lab_show = Label(master=gen_win,
                      text='',
                      font=('Impact', 21, 'italic'),
-                     width=45)
+                     width=45,
+                     bg="#ebebeb")
 
     lab_show.place(x=140, y=410)
     # lab_show.pack(padx=170,pady=390)
@@ -105,8 +194,7 @@ def gen_page():
                               height=30, )
 
     copy_state.place(x=58, y=550)
-    print(eye_but.cget('image'))
     gen_win.mainloop()
 
 
-
+gen_page()

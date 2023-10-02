@@ -181,7 +181,7 @@ def put_time(tim):
         file.writelines(tim)
 
 
-def checker():
+def checker(pwd):
     vuln = []
     spec = ['!', '@', '#', '$', '%', '&', '=']
     cap = 0
@@ -189,8 +189,6 @@ def checker():
     num = 0
     smll = 0
     while True:
-        pwd = input("Enter the password to check (len = 16 or more) : ") + "\n"
-
         if len(pwd) >= 16:
             for p in pwd:
                 if p.isdigit():
@@ -212,6 +210,7 @@ def checker():
 
         else:
             print("character length is below 16 try again : \n")
+            break
 
     if spc >= 3:
         em4 = "✅"
@@ -234,16 +233,17 @@ def checker():
     else:
         em1 = "❌"
 
-    print(smll, "/6 small letters - ", em2)
-    print(cap, "/3 capital letters - ", em3)
-    print(num, "/4 numbers - ", em1)
-    print(spc, "/3 special characters - ", em4)
+    small = f"{smll} /6 small letters - {em2} \n"
+    capital = f"{cap} /3 capital letters - {em3} \n"
+    number = f"{num}/4 numbers - {em1} \n"
+    special = f"{spc} /3 special characters - {em4} \n"
+    pass_list = [small, capital, number, special]
     x = 0
     for i in vuln:
         if i:
             x += 1
 
-    return x, pwd
+    return x, pass_list
 
 
 def save(pwd):

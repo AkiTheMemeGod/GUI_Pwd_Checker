@@ -1,10 +1,6 @@
 import tkinter as tk
 import customtkinter as ctk
-from pages import generate as gn
-import Functions as fn
-from tkinter import messagebox as mb
-import pyperclip as pp
-
+import generate as gn
 
 '''def gen_page():
     def generate():
