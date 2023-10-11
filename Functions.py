@@ -497,4 +497,3 @@ def put_todos(tds, filepath="pg_chk_fls/passwords.txt"):
     """This function helps to put the todos you enter into a text file"""
     with open(filepath, 'w') as file:
         file.writelines(tds)
-

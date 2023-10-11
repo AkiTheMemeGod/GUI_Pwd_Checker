@@ -93,4 +93,3 @@ def check_page():
     sec_pass.place(x=300, y=370)'''
 
     check_win.mainloop()
-
