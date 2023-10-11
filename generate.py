@@ -164,4 +164,5 @@ def gen_page():
     copy_state.place(x=58, y=550)
     gen_win.mainloop()
 
+
 gen_page()
