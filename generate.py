@@ -1,76 +1,13 @@
-import Functions as fn
-import customtkinter as ctk
+from tkinter import PhotoImage
+from tkinter import Button, Label
 from tkinter import messagebox as mb
+import PySimpleGUI as pg
+import customtkinter as ctk
 import pyperclip as pp
-import tkinter as tk
-from tkinter import *
+import Functions as fn
+from checker import check_page
+from manage import manager
 global gen_pass
-
-
-def check_page():
-    def check():
-        password = str(len_entry.get())
-        x, pass_list = fn.checker(password)
-        print(pass_list)
-        sec_pass.configure(text=pass_list)
-
-    ctk.set_default_color_theme("green")
-    ctk.set_appearance_mode("light")
-    check_win = ctk.CTk()
-    check_win.title("Password Checker v2.0")
-    check_win.geometry("880x720")
-
-    back_but = PhotoImage(file="back.png")
-    next_but = PhotoImage(file="next.png")
-
-    label = ctk.CTkLabel(check_win,
-                         text="Check Your Password",
-                         font=('Century Gothic', 50, 'bold'))
-    label.pack()
-
-    back_button = Button(check_win,
-                         image=back_but,
-                         width=60,
-                         height=60,
-                         borderwidth=0,
-                         bg='#ebebeb')
-    back_button.place(x=30, y=20)
-
-    next_button = Button(check_win,
-                         image=next_but,
-                         width=60,
-                         height=60,
-                         borderwidth=0,
-                         bg='#ebebeb')
-    next_button.place(x=800, y=20)
-
-    len_lab = ctk.CTkLabel(check_win,
-                           text="\t      Enter your password and Check",
-                           font=('Century Gothic', 14))
-    len_lab.place(x=235, y=220)
-
-    gen_but = ctk.CTkButton(
-        check_win,
-        text="Check",
-        font=('Impact', 40),
-        width=150,
-        height=60,
-        hover_color="red",
-        command=check)
-    gen_but.place(x=350, y=310)
-
-    len_entry = ctk.CTkEntry(check_win,
-                             placeholder_text="~ <16 ~",
-                             width=230)
-    len_entry.place(x=320, y=260)
-
-    sec_pass = Label(text='',
-                     width=40,
-                     font=("impact", 10),
-                     bg="#ebebeb")
-    sec_pass.place(x=300, y=370)
-
-    check_win.mainloop()
 
 
 def gen_page():
@@ -84,6 +21,7 @@ def gen_page():
                 lab_show.config(text="***********************************************************")
                 # lab_show.config(width=size + 4)
                 copy_state.configure(text='')
+                save_but.configure(image=save_butt)
 
             else:
                 mb.showwarning(title="Warning !",
@@ -100,6 +38,10 @@ def gen_page():
         gen_win.destroy()
         check_page()
 
+    def nextp():
+        gen_win.destroy()
+        manager()
+
     def show(gen_pass):
         if lab_show.cget('text') == gen_pass:
             lab_show.config(text="***********************************************************")
@@ -108,39 +50,56 @@ def gen_page():
             lab_show.config(text=gen_pass)
             eye_but.configure(image=eye_close)
 
+    def save_pwd(pd):
+
+        choice = mb.askquestion(title='SAVE PASSWORD',
+                                message='Do you want to save this password ? ')
+        if choice == 'yes':
+            us = pg.popup_get_text(icon='image.ico',
+                                   button_color="#2cc985",
+                                   background_color='#c6c6c6',
+                                   text_color='black',
+                                   message="Please Enter the username"
+                                   )
+            fn.save(pd, us)
+            save_but.configure(image=saved_butt)
+
     ctk.set_default_color_theme("green")
     ctk.set_appearance_mode("light")
     gen_win = ctk.CTk()
     gen_win.title("Password Checker v2.0")
-    gen_win.geometry("880x720")
+    gen_win.geometry("880x720+500+100")
+    gen_win.after(201, lambda: gen_win.iconbitmap('assets/image.ico'))
 
-    eye_close = PhotoImage(file="invisible.png")
-    eye_open = PhotoImage(file="view.png")
-    copy_but = PhotoImage(file="clipboard.png")
-    back_but = PhotoImage(file="back.png")
-    next_but = PhotoImage(file="next.png")
+    eye_close = PhotoImage(file="assets/invisible.png")
+    eye_open = PhotoImage(file="assets/view.png")
+    copy_but = PhotoImage(file="assets/clipboard.png")
+    save_butt = PhotoImage(file="assets/save.png")
+    saved_butt = PhotoImage(file="assets/saved.png")
     # but_state = eye_close
     label = ctk.CTkLabel(gen_win,
                          text="Generate Password",
                          font=('Century Gothic', 50, 'bold'))
-    label.pack()
+    label.pack(pady=25)
 
-    back_button = Button(gen_win,
-                         image=back_but,
-                         width=60,
-                         height=60,
-                         borderwidth=0,
-                         bg='#ebebeb',
-                         command=prev)
+    back_button = ctk.CTkButton(
+        gen_win,
+        text="Checker",
+        font=('Impact', 40),
+        width=150,
+        height=60,
+        command=prev,
+        hover_color='dark green')
     back_button.place(x=30, y=20)
 
-    next_button = Button(gen_win,
-                         image=next_but,
-                         width=60,
-                         height=60,
-                         borderwidth=0,
-                         bg='#ebebeb')
-    next_button.place(x=800, y=20)
+    next_button = ctk.CTkButton(gen_win,
+                                text="Manage",
+                                font=('Impact', 40),
+                                width=150,
+                                height=60,
+                                command=nextp,
+                                hover_color='dark green')
+    next_button.place(x=700, y=20)
 
     len_lab = ctk.CTkLabel(gen_win,
                            text="Enter the length \n (more than 16 characters is considered a strong password !)",
@@ -177,7 +136,16 @@ def gen_page():
                      borderwidth=0,
                      bg='#ebebeb',
                      command=lambda: show(gen_pass))
-    eye_but.place(x=540, y=310)
+    eye_but.place(x=515, y=310)
+
+    save_but = Button(gen_win,
+                      image=save_butt,
+                      width=60,
+                      height=60,
+                      borderwidth=0,
+                      bg='#ebebeb',
+                      command=lambda: save_pwd(gen_pass))
+    save_but.place(x=575, y=310)
 
     copy_button = Button(master=gen_win,
                          image=copy_but,
@@ -195,6 +163,5 @@ def gen_page():
 
     copy_state.place(x=58, y=550)
     gen_win.mainloop()
-
 
 gen_page()

@@ -1,11 +1,28 @@
 import Functions as fn
 import customtkinter as ctk
 from tkinter import messagebox as mb
-import tkinter as tk
+from manage import manager
+from tkinter import PhotoImage
+from tkinter import Button, Label
+from tkinter import messagebox as mb
+import PySimpleGUI as pg
+
+import pyperclip as pp
+
+# from generate import gen_page
 from tkinter import *
 
 
 def check_page():
+    def prev():
+        check_win.destroy()
+        with open("generate.py") as file:
+            exec(file.read())
+
+    def nextp():
+        check_win.destroy()
+        manager()
+
     def check():
         passd = []
         password = str(len_entry.get())
@@ -22,31 +39,32 @@ def check_page():
     ctk.set_appearance_mode("light")
     check_win = ctk.CTk()
     check_win.title("Password Checker v2.0")
-    check_win.geometry("880x720")
-
-    back_but = PhotoImage(file="back.png")
-    next_but = PhotoImage(file="next.png")
+    check_win.geometry("880x720+500+100")
+    check_win.after(201, lambda: check_win.iconbitmap('assets/image.ico'))
 
     label = ctk.CTkLabel(check_win,
                          text="Check Your Password",
                          font=('Century Gothic', 50, 'bold'))
-    label.pack()
+    label.pack(pady=20)
 
-    back_button = Button(check_win,
-                         image=back_but,
-                         width=60,
-                         height=60,
-                         borderwidth=0,
-                         bg='#ebebeb')
-    back_button.place(x=30, y=20)
+    back_button = ctk.CTkButton(
+        check_win,
+        text="Generate",
+        font=('Impact', 40),
+        width=150,
+        height=60,
+        command=prev,
+        hover_color='dark green')
+    back_button.place(x=10, y=20)
 
-    next_button = Button(check_win,
-                         image=next_but,
-                         width=60,
-                         height=60,
-                         borderwidth=0,
-                         bg='#ebebeb')
-    next_button.place(x=800, y=20)
+    next_button = ctk.CTkButton(check_win,
+                                text="Manage",
+                                font=('Impact', 40),
+                                width=150,
+                                height=60,
+                                command=nextp,
+                                hover_color='dark green')
+    next_button.place(x=720, y=20)
 
     len_lab = ctk.CTkLabel(check_win,
                            text="\t      Enter your password and Check",
@@ -76,4 +94,3 @@ def check_page():
 
     check_win.mainloop()
 
-check_page()

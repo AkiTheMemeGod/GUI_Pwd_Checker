@@ -246,29 +246,24 @@ def checker(pwd):
     return x, pass_list
 
 
-def save(pwd):
+def save(pwd, usr):
     pds = []
     usrn = []
     time = []
-    yorn = input("Do you want to save this password Y/N ? : ")
-    yorn.lower()
-    if yorn.startswith('y'):
-        usr = input("Enter the user name : ") + '\n'
+    pwd = pwd + '\n'
+    usr = usr + '\n'
+    usrn = get_usr()
+    usrn.append(usr)
+    put_usr(usrn)
 
-        usrn = get_usr()
-        usrn.append(usr)
-        put_usr(usrn)
+    pds = get_pd()
+    pds.append(pwd)
+    put_pd(pds)
 
-        pds = get_pd()
-        pds.append(pwd)
-        put_pd(pds)
+    time = get_time()
+    time.append(tm.asctime() + '\n')
+    put_time(time)
 
-        time = get_time()
-        time.append(tm.asctime() + '\n')
-        put_time(time)
-
-    else:
-        saving()
 
 
 def show():
@@ -472,32 +467,15 @@ def otp_gen():
     return otp
 
 
-def verify_otp(email, session):
-    i = 0
-    while session == 0:
-        print("\t\tINITIALIZING GENERAL 2-FACT AUTHENTICATION\n"
-              f"A 6 digit OTP has been sent to the email {email} \n")
-        notif("INITIALIZING GENERAL 2-FACT AUTHENTICATION\n"
-             f"A 6 digit OTP has been sent to the email {email} \n")
-        OTP = otp_gen()
-        s = sm.SMTP('smtp.gmail.com', 587)
-        s.starttls()
-        s.login("akis.pwdchecker@gmail.com", "tjjqhaifdobuluhg")
-        s.sendmail('akis.pwdchecker@gmail.com', email, OTP)
-        while i < 5:
-            a = input("Enter Your OTP >>: ")
-            if a == OTP:
-                print("Verified !\n")
-                notif("Verified !\n")
-                break
-            else:
-                i += 1
-                print(f"Wrong OTP , you have {5 - i} - no of attempts left")
-                if i == 5:
-                    notif("\t\t\t\n\nTOO MANY ATTEMPTS TRY AGAIN LATER !")
-                    exit("\t\t\t\n\nTOO MANY ATTEMPTS TRY AGAIN LATER !")
-        break
-    return True
+def verify_otp(email):
+    '''notif("INITIALIZING GENERAL 2-FACT AUTHENTICATION\n"
+          f"A 6 digit OTP has been sent to the email {email} \n")'''
+    OTP = otp_gen()
+    s = sm.SMTP('smtp.gmail.com', 587)
+    s.starttls()
+    s.login("akis.pwdchecker@gmail.com", "tjjqhaifdobuluhg")
+    s.sendmail('akis.pwdchecker@gmail.com', email, OTP)
+    return OTP
 
 
 def notif(message):
@@ -507,3 +485,16 @@ def notif(message):
         app_icon='pg_chk_fls/image.ico',
         timeout=3,
     )
+
+def get_todos(filepath="pg_chk_fls/passwords.txt"):
+    """This function helps to read the todos you enter into a text file"""
+    with open(filepath, 'r') as file:
+        todos = file.readlines()
+    return todos
+
+
+def put_todos(tds, filepath="pg_chk_fls/passwords.txt"):
+    """This function helps to put the todos you enter into a text file"""
+    with open(filepath, 'w') as file:
+        file.writelines(tds)
+
