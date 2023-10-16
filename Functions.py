@@ -482,8 +482,8 @@ def notif(message):
     notification.notify(
         title='Password Checker-v2.0',
         message=message,
-        app_icon='pg_chk_fls/image.ico',
-        timeout=3,
+        app_icon='assets/image.ico',
+        timeout=3
     )
 
 def get_todos(filepath="pg_chk_fls/passwords.txt"):

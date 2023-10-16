@@ -115,3 +115,4 @@ def manager():
         except TypeError:
             continue
     window.close()
+

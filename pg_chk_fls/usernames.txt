@@ -4,7 +4,8 @@ student portal
 Brave Browser
 edge account 
 visual studio code
-swiggy
 vmware is better
 googlemeet
 microsoft
+android studio
+onedrive.live.com

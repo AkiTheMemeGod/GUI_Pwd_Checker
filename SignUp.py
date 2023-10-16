@@ -1,56 +1,43 @@
 import tkinter
 import os
 import customtkinter as ctk
-
+from customtkinter import CTkImage
 from PIL import ImageTk, Image
 import PySimpleGUI as pg
 from tkinter import messagebox as mb
 import Functions as fn
 
 
+if open("pg_chk_fls/acc_us.txt").read() == '':
+    os.remove("pg_chk_fls/acc_us.txt")
+    os.remove("pg_chk_fls/acc_pd.txt")
+    os.remove("pg_chk_fls/acc_email.txt")
+else:
+    mb.showwarning(title="ACCOUNT ALREADY EXISTS ! ",
+                   message="Account Already Exists in this machine TRY LOGGING IN ")
+    fn.notif(message="Account Already Exists in this machine TRY LOGGING IN ")
+    os.system("python login_page.py")
+    exit()
+
 def cred_check():
-    if entry1.get() == open("pg_chk_fls/acc_us.txt").read() and entry2.get() == open("pg_chk_fls/acc_pd.txt").read():
-        if entry3.get() == open("pg_chk_fls/acc_email.txt").read():
-            gmail = entry3.get()
-            x = int(fn.verify_otp(gmail))
-            while True:
-                otp = int(pg.popup_get_text(no_titlebar=True,
-                                            button_color="#2cc985",
-                                            background_color='#ebebeb',
-                                            text_color='black',
-                                            message="Please Enter your 6-Digit OTP"))
-                if otp == x:
-                    mb.showinfo("Successful login", message="SUCCESSFUL LOGIN")
-                    login()
-                    break
-                else:
-                    mb.showerror("Try Again", message="INCORRECT LOGIN CREDENTIALS")
-                    continue
-        else:
-            mb.showerror("Try Again", message="enter a vaild email")
-    else:
-        mb.showerror("Try Again", message="INCORRECT LOGIN CREDENTIALS")
+    with open("pg_chk_fls/acc_us.txt", "w") as f:
+        f.write(entry1.get())
+    with open("pg_chk_fls/acc_pd.txt", "w") as f:
+        f.write(entry2.get())
+    with open("pg_chk_fls/acc_email.txt", "w") as f:
+        f.write(entry3.get())
+
+    fn.notif("Account Created Successfully ")
+    login()
 
 
 def login():
     app.destroy()
-    os.system('python generate.py')
+    os.system('python login_page.py')
 
-
-if os.path.exists('pg_chk_fls/acc_us.txt'):
-    if open("pg_chk_fls/acc_us.txt").read() == '':
-        os.system('python SignUp.py')
-        exit()
-    else:
-        pass
-
-else:
-    os.system('python SignUp.py')
-    exit()
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
-
 
 app = ctk.CTk()
 app.geometry("1080x720+400+100")
@@ -77,7 +64,7 @@ l2.place(x=290, y=35)
 
 l2 = ctk.CTkLabel(
     master=frame,
-    text="Log into your Account",
+    text="SignUp your Account",
     font=('Century Gothic', 20))
 l2.place(x=50, y=45)
 
@@ -109,7 +96,7 @@ entry3.place(x=50, y=220)
 login_button = ctk.CTkButton(
     master=frame,
     width=220,
-    text="Login",
+    text="SignUp",
     command=cred_check,
     corner_radius=6,
     hover_color='red')
@@ -120,3 +107,4 @@ l3 = ctk.CTkLabel(
     font=('Century Gothic', 10))
 l3.place(x=980, y=690)
 app.mainloop()
+
