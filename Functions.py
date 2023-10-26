@@ -6,7 +6,7 @@ from cryptography.fernet import Fernet as fn
 import os
 import pyperclip as pp
 from plyer import notification
-
+import encrypter as en
 
 def account():
     while True:
@@ -252,18 +252,19 @@ def save(pwd, usr):
     time = []
     pwd = pwd + '\n'
     usr = usr + '\n'
+    en.decrypt_file("pg_chk_fls/usernames.txt")
     usrn = get_usr()
     usrn.append(usr)
     put_usr(usrn)
-
+    en.decrypt_file("pg_chk_fls/passwords.txt")
     pds = get_pd()
     pds.append(pwd)
     put_pd(pds)
-
+    en.decrypt_file("pg_chk_fls/timestamp.txt")
     time = get_time()
     time.append(tm.asctime() + '\n')
     put_time(time)
-
+    en.encrypt_folder('pg_chk_fls')
 
 
 def show():

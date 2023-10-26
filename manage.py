@@ -1,22 +1,23 @@
 import PySimpleGUI as pg
 import Functions as fn
-
+import encrypter as en
 
 def manager():
     global username, password
+    en.encrypt_folder('pg_chk_fls')
 
-    label = pg.Text("Type in a todo")
     entry_box1 = pg.InputText(tooltip="enter here", key="todo1", size=(35, 1))
     entry_box2 = pg.InputText(tooltip="enter here", key="todo2", size=(35, 1))
     button_edit1 = pg.Button("Edit Username")
     button_edit2 = pg.Button("Edit Password")
     button_generate = pg.Button("Auto Generate ?")
     button_delete = pg.Button("Delete")
-    copy_button = pg.Button("Copy")
-
+    exit_button = pg.Button("Exit")
+    clear_button = pg.Button('Clear all')
     pg.set_options(font=("Arial Bold", 14), icon='assets/image.ico')
 
     heading = ['UserName', 'Passwords']
+    en.decrypt_folder('pg_chk_fls')
     pds = fn.get_pd()
     usr = fn.get_usr()
 
@@ -37,7 +38,8 @@ def manager():
                     header_background_color='#2cc985',
                     text_color='black')
 
-    layout = [[tbl1], [entry_box1, button_edit1], [entry_box2, button_edit2, button_generate], [button_delete]]
+    layout = [[tbl1], [entry_box1, button_edit1, button_delete],
+              [entry_box2, button_edit2, button_generate], [clear_button, exit_button]]
     window = pg.Window("Manage",
                        layout,
                        resizable=True,
@@ -110,9 +112,22 @@ def manager():
                     fn.put_usr(usr)
                     fn.put_pd(pds)
                     window['table'].update(values=result_list)
-                case pg.WINDOW_CLOSED:
-                    break
-        except TypeError:
-            continue
-    window.close()
+                case "Clear all":
+                    fn.clear()
+                    v1 = fn.get_usr()
+                    v2 = fn.get_pd()
 
+                    result_list = []
+                    for item1, item2 in zip(v1, v2):
+                        result_list.append([item1, item2])
+                    fn.put_usr(v1)
+                    fn.put_pd(v2)
+                    window['table'].update(values=result_list)
+                case "Exit":
+                    en.encrypt_folder('pg_chk_fls')
+                    exit()
+                    exit()
+        except TypeError:
+            pass
+
+    window.close()

@@ -1,4 +1,5 @@
 from tkinter import PhotoImage
+import encrypter as en
 from tkinter import Button, Label
 from tkinter import messagebox as mb
 import PySimpleGUI as pg
@@ -9,6 +10,8 @@ from checker import check_page
 from manage import manager
 global gen_pass
 
+en.encrypt_folder('pg_chk_fls')
+
 
 def gen_page():
     def generate():
@@ -17,7 +20,7 @@ def gen_page():
             if size >= 16:
                 global gen_pass
                 gen_pass = fn.gen(size)
-                print(gen_pass)
+                # print(gen_pass)
                 lab_show.config(text="***********************************************************")
                 # lab_show.config(width=size + 4)
                 copy_state.configure(text='')

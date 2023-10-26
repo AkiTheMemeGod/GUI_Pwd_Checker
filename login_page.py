@@ -6,11 +6,15 @@ from PIL import ImageTk, Image
 import PySimpleGUI as pg
 from tkinter import messagebox as mb
 import Functions as fn
+import encrypter as en
+
+en.encrypt_folder('pg_chk_fls')
 
 
 def cred_check():
-    if entry1.get() == open("pg_chk_fls/acc_us.txt").read() and entry2.get() == open("pg_chk_fls/acc_pd.txt").read():
-        if entry3.get() == open("pg_chk_fls/acc_email.txt").read():
+    if (en.encrypt(entry1.get()) == open("pg_chk_fls/acc_us.txt").read() and
+            en.encrypt(entry2.get()) == open("pg_chk_fls/acc_pd.txt").read()):
+        if en.encrypt(entry3.get()) == open("pg_chk_fls/acc_email.txt").read():
             gmail = entry3.get()
             x = int(fn.verify_otp(gmail))
             while True:
@@ -18,7 +22,8 @@ def cred_check():
                                             button_color="#2cc985",
                                             background_color='#ebebeb',
                                             text_color='black',
-                                            message="Please Enter your 6-Digit OTP"))
+                                            message="Please Enter your 6-Digit OTP",
+                                            size=(50, 50)))
                 if otp == x:
                     mb.showinfo("Successful login", message="SUCCESSFUL LOGIN")
                     login()
@@ -59,7 +64,8 @@ app.after(201, lambda: app.iconbitmap('assets/image.ico'))
 
 img1 = ImageTk.PhotoImage(Image.open("./assets/pattern.png"))
 # img1 = CTkImage(light_image="assets/pattern.png")
-l1 = ctk.CTkLabel(master=app, image=img1)
+l1 = ctk.CTkLabel(master=app,
+                  image=img1)
 l1.pack()
 
 frame = ctk.CTkFrame(
