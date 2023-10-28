@@ -2,6 +2,7 @@ import PySimpleGUI as pg
 import Functions as fn
 import encrypter as en
 
+
 def manager():
     global username, password
     en.encrypt_folder('pg_chk_fls')
