@@ -8,6 +8,7 @@ import pyperclip as pp
 from plyer import notification
 import encrypter as en
 
+
 def account():
     while True:
         if os.path.exists("pg_chk_fls/acc_us.txt"):
