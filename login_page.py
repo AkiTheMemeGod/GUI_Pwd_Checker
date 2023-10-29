@@ -25,7 +25,7 @@ def cred_check():
                                             message="Please Enter your 6-Digit OTP",
                                             size=(50, 50)))
                 if otp == x:
-                    mb.showinfo("Successful login", message="SUCCESSFUL LOGIN")
+                    mb.showinfo("Successful login", message="SUCCESSFUL LOGIN") 
                     login()
                     break
                 else:

@@ -32,7 +32,7 @@ def check_page():
             i = i.replace('}', '')
             passd.append(i)
         # mb.showinfo("Password", message=passd)
-        x = mb.askquestion(message=passd)
+        x = mb.askquestion(message=str(passd))
         print(x)
 
     ctk.set_default_color_theme("green")
