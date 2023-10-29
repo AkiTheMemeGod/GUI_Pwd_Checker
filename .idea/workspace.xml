@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e9d0f31-a504-4dd8-a654-e195618a9543" name="Changes" comment="minor bug fixes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="Setup Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AkiTheMemeGod&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d765a29f-4eab-47a8-8f4a-066cd0eb92e9" />
+        <option name="url" value="https://github.com/AkiTheMemeGod/GUI_Pwd_Checker.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/login_page.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2VD7TX3G11amUH7oVz4xK7oJtqF" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/PROJECTS/GUI_Pwd_Checker/venv/Scripts",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\PROJECTS\GUI_Pwd_Checker\venv\Scripts" />
+      <recent name="C:\GUI_Pwd_Checker" />
+      <recent name="C:\GUI_Pwd_Checker\pg_chk_fls" />
+      <recent name="C:\GUI_Pwd_Checker\pages" />
+      <recent name="C:\PROJECTS\GUI_Pwd_Checker\pg_chk_fls" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\GUI_Pwd_Checker\assets" />
+      <recent name="C:\GUI_Pwd_Checker\pages" />
+      <recent name="C:\GUI_Pwd_Checker" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SignUp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GUI_Pwd_Checker" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SignUp.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.SignUp" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e9d0f31-a504-4dd8-a654-e195618a9543" name="Changes" comment="" />
+      <created>1694358804647</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694358804647</updated>
+    </task>
+    <task id="LOCAL-00001" summary="1.Created a login page&#10;2.Created a main home page &#10;3.placed the 3 main buttons &#10;4.made some major changes in the UI">
+      <option name="closed" value="true" />
+      <created>1694700018167</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694700018167</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added the generate functions to the main page , still trying to figure out how to add a python file to a fram">
+      <option name="closed" value="true" />
+      <created>1694743472343</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694743472343</updated>
+    </task>
+    <task id="LOCAL-00003" summary="added a show and hide button functionality">
+      <option name="closed" value="true" />
+      <created>1694785968462</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694785968462</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added a working hide the password and copy to clipboard option in the generate (window)">
+      <option name="closed" value="true" />
+      <created>1694839523861</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1694839523861</updated>
+    </task>
+    <task id="LOCAL-00005" summary="added a new checker page and implemented the logic still there are few bugs to be rectified">
+      <option name="closed" value="true" />
+      <created>1696253001755</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696253001755</updated>
+    </task>
+    <task id="LOCAL-00006" summary="checking">
+      <option name="closed" value="true" />
+      <created>1696253364515</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696253364515</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Manage section implemented&#10;Checker Section IMplemented&#10;Generate Section Implemented&#10;&#10;No Major Bugs&#10;&#10;minor bugs still exit">
+      <option name="closed" value="true" />
+      <created>1697038226442</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697038226442</updated>
+    </task>
+    <task id="LOCAL-00008" summary="removed unwanted lines">
+      <option name="closed" value="true" />
+      <created>1697038397331</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697038397331</updated>
+    </task>
+    <task id="LOCAL-00009" summary="removed unwanted lines">
+      <option name="closed" value="true" />
+      <created>1697038445186</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697038445186</updated>
+    </task>
+    <task id="LOCAL-00010" summary="made improvements">
+      <option name="closed" value="true" />
+      <created>1697443268138</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697443268138</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added a encrypting module developed by me">
+      <option name="closed" value="true" />
+      <created>1698290775045</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1698290775045</updated>
+    </task>
+    <task id="LOCAL-00012" summary="minor bug fixes">
+      <option name="closed" value="true" />
+      <created>1698590207090</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1698590207090</updated>
+    </task>
+    <task id="LOCAL-00013" summary="minor bug fixes">
+      <option name="closed" value="true" />
+      <created>1698590291692</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1698590291692</updated>
+    </task>
+    <task id="LOCAL-00014" summary="minor bug fixes">
+      <option name="closed" value="true" />
+      <created>1698590362348</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1698590362349</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1.Created a login page&#10;2.Created a main home page &#10;3.placed the 3 main buttons &#10;4.made some major changes in the UI" />
+    <MESSAGE value="added the generate functions to the main page , still trying to figure out how to add a python file to a fram" />
+    <MESSAGE value="added a show and hide button functionality" />
+    <MESSAGE value="added a working hide the password and copy to clipboard option in the generate (window)" />
+    <MESSAGE value="added a new checker page and implemented the logic still there are few bugs to be rectified" />
+    <MESSAGE value="checking" />
+    <MESSAGE value="Manage section implemented&#10;Checker Section IMplemented&#10;Generate Section Implemented&#10;&#10;No Major Bugs&#10;&#10;minor bugs still exit" />
+    <MESSAGE value="removed unwanted lines" />
+    <MESSAGE value="made improvements" />
+    <MESSAGE value="added a encrypting module developed by me" />
+    <MESSAGE value="minor bug fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor bug fixes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python310/Lib/site-packages/plyer/__init__.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
