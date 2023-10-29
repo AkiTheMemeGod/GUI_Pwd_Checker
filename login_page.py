@@ -74,7 +74,7 @@ frame = ctk.CTkFrame(
     height=360,
     corner_radius=15)
 frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-
+# comments line
 l2 = ctk.CTkLabel(
     master=app,
     text="Password Checker-v2.0",
