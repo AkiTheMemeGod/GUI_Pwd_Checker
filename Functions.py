@@ -10,6 +10,7 @@ import encrypter as en
 
 
 def account():
+
     while True:
         if os.path.exists("pg_chk_fls/acc_us.txt"):
             print("\n\n\t\t\t\t\tAn user account detected on this machine : \n\n\n ")
@@ -50,7 +51,7 @@ def gen_key():
 def encrypt(key):
     f = fn(key)
 
-    with open('pg_chk_fls/passwords.txt', 'rb') as passes:
+    with open('User Accounts/akash/passwords.txt', 'rb') as passes:
         passes = passes.read()
 
     enc_pass = f.encrypt(passes)
@@ -58,7 +59,7 @@ def encrypt(key):
     with open('pg_chk_fls/enc_passwords.txt', 'wb') as enc_passes:
         enc_passes.write(enc_pass)
 
-    with open('pg_chk_fls/usernames.txt', 'rb') as usernames:
+    with open('User Accounts/akash/usernames.txt', 'rb') as usernames:
         users = usernames.read()
 
     enc_user = f.encrypt(users)
@@ -66,7 +67,7 @@ def encrypt(key):
     with open('pg_chk_fls/enc_usernames.txt', 'wb') as enc_users:
         enc_users.write(enc_user)
 
-    with open('pg_chk_fls/login_credentials.xlsx', 'rb') as logs:
+    with open('User Accounts/akash/login_credentials.xlsx', 'rb') as logs:
         log = logs.read()
 
     enc_log = f.encrypt(log)
@@ -74,9 +75,9 @@ def encrypt(key):
     with open('pg_chk_fls/enc_login_credentials.xlsx', 'wb') as enc_logs:
         enc_logs.write(enc_log)
 
-    os.remove("pg_chk_fls/passwords.txt")
-    os.remove("pg_chk_fls/usernames.txt")
-    os.remove("pg_chk_fls/login_credentials.xlsx")
+    os.remove("User Accounts/akash/passwords.txt")
+    os.remove("User Accounts/akash/usernames.txt")
+    os.remove("User Accounts/akash/login_credentials.xlsx")
 
 
 def decrypt(key):
@@ -87,7 +88,7 @@ def decrypt(key):
 
     dec_pass = f.decrypt(passes)
 
-    with open('pg_chk_fls/passwords.txt', 'wb') as passes:
+    with open('User Accounts/akash/passwords.txt', 'wb') as passes:
         passes.write(dec_pass)
 
     with open('pg_chk_fls/enc_usernames.txt', 'rb') as enc_users:
@@ -95,7 +96,7 @@ def decrypt(key):
 
     dec_users = f.decrypt(users)
 
-    with open('pg_chk_fls/usernames.txt', 'wb') as usernames:
+    with open('User Accounts/akash/usernames.txt', 'wb') as usernames:
         usernames.write(dec_users)
 
     with open('pg_chk_fls/enc_login_credentials.xlsx', 'rb') as enc_logs:
@@ -103,7 +104,7 @@ def decrypt(key):
 
     dec_logs = f.decrypt(log)
 
-    with open('pg_chk_fls/login_credentials.xlsx', 'wb') as logs:
+    with open('User Accounts/akash/login_credentials.xlsx', 'wb') as logs:
         logs.write(dec_logs)
 
     os.remove("pg_chk_fls/enc_passwords.txt")
@@ -150,35 +151,35 @@ def gen(length):
 
 
 def get_pd():
-    with open("pg_chk_fls/passwords.txt", 'r') as file:
+    with open(f"{path}/passwords.txt", 'r') as file:
         passwords = file.readlines()
     return passwords
 
 
 def put_pd(pwd):
-    with open("pg_chk_fls/passwords.txt", 'w') as file:
+    with open(f"{path}/passwords.txt", 'w') as file:
         file.writelines(pwd)
 
 
 def get_usr():
-    with open("pg_chk_fls/usernames.txt", 'r') as file:
+    with open(f"{path}/usernames.txt", 'r') as file:
         usernames = file.readlines()
     return usernames
 
 
 def put_usr(usrn):
-    with open("pg_chk_fls/usernames.txt", 'w') as file:
+    with open(f"{path}/usernames.txt", 'w') as file:
         file.writelines(usrn)
 
 
 def get_time():
-    with open("pg_chk_fls/timestamp.txt", 'r') as file:
+    with open(f"{path}/timestamp.txt", 'r') as file:
         times = file.readlines()
     return times
 
 
 def put_time(tim):
-    with open("pg_chk_fls/timestamp.txt", 'w') as file:
+    with open(f"{path}/timestamp.txt", 'w') as file:
         file.writelines(tim)
 
 
@@ -248,24 +249,25 @@ def checker(pwd):
 
 
 def save(pwd, usr):
+    path = 'User Accounts/' + whose_session()
     pds = []
     usrn = []
     time = []
     pwd = pwd + '\n'
     usr = usr + '\n'
-    en.decrypt_file("pg_chk_fls/usernames.txt")
+    en.decrypt_folder(path)
     usrn = get_usr()
     usrn.append(usr)
     put_usr(usrn)
-    en.decrypt_file("pg_chk_fls/passwords.txt")
+    # en.decrypt_file(path)
     pds = get_pd()
     pds.append(pwd)
     put_pd(pds)
-    en.decrypt_file("pg_chk_fls/timestamp.txt")
+    # en.decrypt_file(path)
     time = get_time()
     time.append(tm.asctime() + '\n')
     put_time(time)
-    en.encrypt_folder('pg_chk_fls')
+    en.encrypt_folder(path)
 
 
 def show():
@@ -432,6 +434,7 @@ def clear():
 
 
 def saving():
+    # path = 'User Accounts/' + whose_session()
     usrn = []
     pds = []
     time = []
@@ -450,7 +453,7 @@ def saving():
         "PASSWORDS": pds
     }
     df = pd.DataFrame(data)
-    df.to_excel("pg_chk_fls/login_credentials.xlsx")
+    df.to_excel(f"{path}/login_credentials.xlsx")
 
     usrn = [i + "\n" for i in usrn]
     pds = [i + "\n" for i in pds]
@@ -488,14 +491,48 @@ def notif(message):
         timeout=3
     )
 
-def get_todos(filepath="pg_chk_fls/passwords.txt"):
-    """This function helps to read the todos you enter into a text file"""
+
+"""def get_todos(filepath="pg_chk_fls/passwords.txt"):
     with open(filepath, 'r') as file:
         todos = file.readlines()
     return todos
 
 
 def put_todos(tds, filepath="pg_chk_fls/passwords.txt"):
-    """This function helps to put the todos you enter into a text file"""
     with open(filepath, 'w') as file:
         file.writelines(tds)
+"""
+
+
+def get_account(filename):
+    with open(filename, 'r') as file:
+        accounts = file.readlines()
+    return accounts
+
+
+def get_account_string(filename):
+    with open(filename, 'r') as file:
+        accounts = file.read()
+    return accounts
+# en.decrypt_folder('pg_chk_fls')
+
+
+def write_session(session_name):
+    with open("assets/session.txt", 'w') as file:
+        file.write(session_name)
+
+
+def whose_session():
+    with open("assets/session.txt", 'r') as file:
+        session = file.read()
+    return session
+
+
+def create_account(directory):
+    parent_path = 'C:/PROJECTS/GUI_Pwd_Checker/User Accounts'
+    path = os.path.join(parent_path, directory)
+    os.mkdir(path)
+
+
+global path
+path = 'User Accounts/' + whose_session()

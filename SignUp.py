@@ -6,6 +6,8 @@ from PIL import ImageTk, Image
 import PySimpleGUI as pg
 from tkinter import messagebox as mb
 import Functions as fn
+import encrypter as en
+en.decrypt_folder('pg_chk_fls')
 
 
 if open("pg_chk_fls/acc_us.txt").read() == '':
@@ -13,20 +15,30 @@ if open("pg_chk_fls/acc_us.txt").read() == '':
     os.remove("pg_chk_fls/acc_pd.txt")
     os.remove("pg_chk_fls/acc_email.txt")
 else:
-    mb.showwarning(title="ACCOUNT ALREADY EXISTS ! ",
-                   message="Account Already Exists in this machine TRY LOGGING IN ")
-    fn.notif(message="Account Already Exists in this machine TRY LOGGING IN ")
-    os.system("python login_page.py")
-    exit()
+    if mb.askyesno(title="ACCOUNT ALREADY EXISTS ! ",
+                      message="Account Already Exists in this machine, You want to create a new account or continue ?"
+                              "  \n\nYes - New Account,\nNo - Login"):
+        print("New Account creation in progress..")
+    else:
+        fn.notif(message="Account Already Exists in this machine TRY LOGGING IN ")
+        os.system("python login_page.py")
+        exit()
+
 
 def cred_check():
+    fn.create_account(entry1.get())
+    x = fn.get_account('pg_chk_fls/acc_us.txt')
+    y = fn.get_account('pg_chk_fls/acc_pd.txt')
+    z = fn.get_account('pg_chk_fls/acc_email.txt')
     with open("pg_chk_fls/acc_us.txt", "w") as f:
-        f.write(entry1.get())
+        x.append(entry1.get() + '\n')
+        f.writelines(x)
     with open("pg_chk_fls/acc_pd.txt", "w") as f:
-        f.write(entry2.get())
+        y.append(entry2.get() + '\n')
+        f.writelines(y)
     with open("pg_chk_fls/acc_email.txt", "w") as f:
-        f.write(entry3.get())
-
+        z.append(entry3.get() + '\n')
+        f.writelines(z)
     fn.notif("Account Created Successfully ")
     login()
 
@@ -41,7 +53,7 @@ ctk.set_default_color_theme("blue")
 
 app = ctk.CTk()
 app.geometry("1080x720+400+100")
-app.title('Password_Checker-v2.0')
+app.title('Password_Generator-v2.0')
 app.after(201, lambda: app.iconbitmap('assets/image.ico'))
 
 img1 = ImageTk.PhotoImage(Image.open("./assets/pattern.png"))
@@ -58,7 +70,7 @@ frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 l2 = ctk.CTkLabel(
     master=app,
-    text="Password Checker-v2.0",
+    text="Password_Generator-v2.0",
     font=('Century Gothic', 50))
 l2.place(x=290, y=35)
 
@@ -108,3 +120,4 @@ l3 = ctk.CTkLabel(
 l3.place(x=980, y=690)
 app.mainloop()
 
+en.encrypt_folder('pg_chk_fls')

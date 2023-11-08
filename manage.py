@@ -1,11 +1,11 @@
 import PySimpleGUI as pg
 import Functions as fn
 import encrypter as en
-
+path = 'User Accounts/' + fn.whose_session()
 
 def manager():
     global username, password
-    en.encrypt_folder('pg_chk_fls')
+    en.encrypt_folder(path)
 
     entry_box1 = pg.InputText(tooltip="enter here", key="todo1", size=(35, 1))
     entry_box2 = pg.InputText(tooltip="enter here", key="todo2", size=(35, 1))
@@ -18,7 +18,7 @@ def manager():
     pg.set_options(font=("Arial Bold", 14), icon='assets/image.ico')
 
     heading = ['UserName', 'Passwords']
-    en.decrypt_folder('pg_chk_fls')
+    en.decrypt_folder(path)
     pds = fn.get_pd()
     usr = fn.get_usr()
 
@@ -125,7 +125,7 @@ def manager():
                     fn.put_pd(v2)
                     window['table'].update(values=result_list)
                 case "Exit":
-                    en.encrypt_folder('pg_chk_fls')
+                    en.encrypt_folder(path)
                     exit()
                     exit()
         except TypeError:

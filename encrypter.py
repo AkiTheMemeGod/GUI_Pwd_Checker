@@ -120,4 +120,4 @@ def decrypt_folder(folder):
                 print(f'Error decrypting --> {filename}: ')
 
 
-encrypt_folder('pg_chk_fls')
+# decrypt_folder('pg_chk_fls')

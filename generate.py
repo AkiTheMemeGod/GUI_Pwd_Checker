@@ -9,8 +9,8 @@ import Functions as fn
 from checker import check_page
 from manage import manager
 global gen_pass
-
-en.encrypt_folder('pg_chk_fls')
+path = 'User Accounts/' + fn.whose_session()
+en.encrypt_folder(path)
 
 
 def gen_page():
