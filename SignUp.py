@@ -10,7 +10,7 @@ import encrypter as en
 en.decrypt_folder('pg_chk_fls')
 
 
-if open("pg_chk_fls/acc_us.txt").read() == '':
+'''if open("pg_chk_fls/acc_us.txt").read() == '':
     os.remove("pg_chk_fls/acc_us.txt")
     os.remove("pg_chk_fls/acc_pd.txt")
     os.remove("pg_chk_fls/acc_email.txt")
@@ -21,8 +21,9 @@ else:
         print("New Account creation in progress..")
     else:
         fn.notif(message="Account Already Exists in this machine TRY LOGGING IN ")
-        os.system("python login_page.py")
+        os.system("python C:/PROJECTS/GUI_Pwd_Checker/login_page.py")
         exit()
+'''
 
 
 def cred_check():
@@ -105,14 +106,23 @@ entry3 = ctk.CTkEntry(
 
 entry3.place(x=50, y=220)
 
-login_button = ctk.CTkButton(
+signup_button = ctk.CTkButton(
     master=frame,
     width=220,
     text="SignUp",
     command=cred_check,
     corner_radius=6,
     hover_color='red')
-login_button.place(x=50, y=270)
+signup_button.place(x=50, y=260)
+login_button = ctk.CTkButton(
+    master=frame,
+    width=220,
+    text="Already Have an Account?",
+    command=login,
+    corner_radius=6,
+    hover_color='lime')
+login_button.place(x=50, y=300)
+
 l3 = ctk.CTkLabel(
     master=app,
     text="Created by: Akash",

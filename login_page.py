@@ -46,8 +46,15 @@ def login():
     os.system('python generate.py')
 
 
+def signup():
+    app.destroy()
+    os.system('python C:/PROJECTS/GUI_Pwd_Checker/SignUp.py')
+
+
 if os.path.exists('pg_chk_fls/acc_us.txt'):
     if open("pg_chk_fls/acc_us.txt").read() == '':
+        mb.showerror(title='ACCOUNT DOESNT EXIST',
+                     message="There is no account detected in this machine! Try Signing Up :)")
         os.system('python SignUp.py')
         exit()
     else:
@@ -123,7 +130,17 @@ login_button = ctk.CTkButton(
     command=cred_check,
     corner_radius=6,
     hover_color='red')
-login_button.place(x=50, y=270)
+login_button.place(x=50, y=260)
+
+sign_up_button = ctk.CTkButton(
+    master=frame,
+    width=220,
+    text="New here? Signup",
+    command=signup,
+    corner_radius=6,
+    hover_color='lime')
+sign_up_button.place(x=50, y=300)
+
 l3 = ctk.CTkLabel(
     master=app,
     text="Created by: Akash",

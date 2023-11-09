@@ -7,7 +7,7 @@ import os
 import pyperclip as pp
 from plyer import notification
 import encrypter as en
-
+import shutil as sh
 
 def account():
 
@@ -532,6 +532,9 @@ def create_account(directory):
     parent_path = 'C:/PROJECTS/GUI_Pwd_Checker/User Accounts'
     path = os.path.join(parent_path, directory)
     os.mkdir(path)
+    sh.copy('assets/passwords.txt', path)
+    sh.copy('assets/usernames.txt', path)
+    sh.copy('assets/timestamp.txt', path)
 
 
 global path

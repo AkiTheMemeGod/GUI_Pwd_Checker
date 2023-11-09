@@ -129,3 +129,6 @@ def encrypt_all():
         for x in os.listdir(f"{parent}/{i}"):
             if '.txt' in x:
                 encrypt_file(f"{parent}/{i}/{x}")
+
+
+decrypt_folder('pg_chk_fls')

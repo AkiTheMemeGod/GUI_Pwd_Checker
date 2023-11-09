@@ -125,10 +125,12 @@ def manager():
                     fn.put_pd(v2)
                     window['table'].update(values=result_list)
                 case "Exit":
+                    en.encrypt_folder('pg_chk_fls')
                     en.encrypt_all()
                     exit()
-                    exit()
+
         except TypeError:
             pass
 
-    window.close()
+        window.close()
+        exit()
