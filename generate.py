@@ -165,6 +165,11 @@ def gen_page():
                               height=30, )
 
     copy_state.place(x=58, y=550)
+    l3 = ctk.CTkLabel(
+        master=gen_win,
+        text=f"Logged in as : {fn.whose_session()}",
+        font=('Century Gothic', 10))
+    l3.place(x=750, y=690)
     gen_win.mainloop()
 
 

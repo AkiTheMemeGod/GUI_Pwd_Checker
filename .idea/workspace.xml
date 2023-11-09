@@ -4,20 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e9d0f31-a504-4dd8-a654-e195618a9543" name="Changes" comment="minor bug fixes">
-      <change afterPath="$PROJECT_DIR$/pg_chk_fls/login_credentials.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GUI_Pwd_Checker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GUI_Pwd_Checker.iml" afterDir="false" />
+    <list default="true" id="4e9d0f31-a504-4dd8-a654-e195618a9543" name="Changes" comment="added an individual user database system">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/akash/login_credentials.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/akash/passwords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/akash/timestamp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/akash/usernames.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/shrimitha/passwords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/shrimitha/timestamp.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/User Accounts/shrimitha/usernames.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/session.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SignUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/SignUp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/encrypter.py" beforeDir="false" afterPath="$PROJECT_DIR$/encrypter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pg_chk_fls/acc_email.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/acc_email.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pg_chk_fls/acc_pd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/acc_pd.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pg_chk_fls/acc_us.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/acc_us.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg_chk_fls/passwords.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/passwords.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg_chk_fls/timestamp.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/timestamp.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pg_chk_fls/usernames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/usernames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg_chk_fls/passwords.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg_chk_fls/timestamp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pg_chk_fls/usernames.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,30 +73,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/PROJECTS/Todo-APP&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/PROJECTS/GUI_Pwd_Checker/User Accounts/Sruthi",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\PROJECTS\GUI_Pwd_Checker\User Accounts\Sruthi" />
+      <recent name="C:\PROJECTS\GUI_Pwd_Checker\User Accounts\shrimitha" />
       <recent name="C:\PROJECTS\GUI_Pwd_Checker\venv\Scripts" />
       <recent name="C:\GUI_Pwd_Checker" />
       <recent name="C:\GUI_Pwd_Checker\pg_chk_fls" />
-      <recent name="C:\GUI_Pwd_Checker\pages" />
-      <recent name="C:\PROJECTS\GUI_Pwd_Checker\pg_chk_fls" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\PROJECTS\GUI_Pwd_Checker\User Accounts\akash" />
       <recent name="C:\GUI_Pwd_Checker\assets" />
       <recent name="C:\GUI_Pwd_Checker\pages" />
       <recent name="C:\GUI_Pwd_Checker" />
@@ -262,7 +268,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698590629419</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added an individual user database system">
+      <option name="closed" value="true" />
+      <created>1699462915836</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1699462915836</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -289,7 +303,8 @@
     <MESSAGE value="made improvements" />
     <MESSAGE value="added a encrypting module developed by me" />
     <MESSAGE value="minor bug fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor bug fixes" />
+    <MESSAGE value="added an individual user database system" />
+    <option name="LAST_COMMIT_MESSAGE" value="added an individual user database system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

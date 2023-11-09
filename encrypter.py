@@ -1,3 +1,6 @@
+import os
+import secrets as st
+
 alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
              'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
              'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
@@ -14,8 +17,8 @@ alphabets = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
 '''print(len(alphabets))
 '''
 
+
 def key(bits):
-    import secrets as st
     keys = st.token_hex(bits)
     return keys
 
@@ -120,4 +123,9 @@ def decrypt_folder(folder):
                 print(f'Error decrypting --> {filename}: ')
 
 
-# decrypt_folder('pg_chk_fls')
+def encrypt_all():
+    parent = 'C:/PROJECTS/GUI_Pwd_Checker/User Accounts'
+    for i in os.listdir(parent):
+        for x in os.listdir(f"{parent}/{i}"):
+            if '.txt' in x:
+                encrypt_file(f"{parent}/{i}/{x}")

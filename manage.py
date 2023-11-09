@@ -125,7 +125,7 @@ def manager():
                     fn.put_pd(v2)
                     window['table'].update(values=result_list)
                 case "Exit":
-                    en.encrypt_folder(path)
+                    en.encrypt_all()
                     exit()
                     exit()
         except TypeError:
