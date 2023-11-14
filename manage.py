@@ -128,9 +128,8 @@ def manager():
                     en.encrypt_folder('pg_chk_fls')
                     en.encrypt_all()
                     exit()
-
+                    exit()
         except TypeError:
             pass
 
         window.close()
-        exit()

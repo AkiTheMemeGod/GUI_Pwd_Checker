@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e9d0f31-a504-4dd8-a654-e195618a9543" name="Changes" comment="added an individual user database system and fixed some minor bugs">
+    <list default="true" id="4e9d0f31-a504-4dd8-a654-e195618a9543" name="Changes" comment="made huge improvemnts in the app's perfomance , added a fail-proof system">
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/assets/passwords.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/assets/session.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/assets/timestamp.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/assets/usernames.txt" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login_page.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/Functions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SignUp.py" beforeDir="false" afterPath="$PROJECT_DIR$/SignUp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/encrypter.py" beforeDir="false" afterPath="$PROJECT_DIR$/encrypter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/login_page.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pg_chk_fls/acc_email.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/acc_email.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pg_chk_fls/acc_pd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/acc_pd.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pg_chk_fls/acc_us.txt" beforeDir="false" afterPath="$PROJECT_DIR$/pg_chk_fls/acc_us.txt" afterDir="false" />
@@ -285,7 +281,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699514868956</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="made huge improvemnts in the app's perfomance , added a fail-proof system">
+      <option name="closed" value="true" />
+      <created>1699537745687</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1699537745687</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -314,7 +318,8 @@
     <MESSAGE value="minor bug fixes" />
     <MESSAGE value="added an individual user database system" />
     <MESSAGE value="added an individual user database system and fixed some minor bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="added an individual user database system and fixed some minor bugs" />
+    <MESSAGE value="made huge improvemnts in the app's perfomance , added a fail-proof system" />
+    <option name="LAST_COMMIT_MESSAGE" value="made huge improvemnts in the app's perfomance , added a fail-proof system" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
