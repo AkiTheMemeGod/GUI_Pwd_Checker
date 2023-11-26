@@ -131,4 +131,3 @@ def encrypt_all():
                 encrypt_file(f"{parent}/{i}/{x}")
 
 
-decrypt_folder('pg_chk_fls')
