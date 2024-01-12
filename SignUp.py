@@ -9,6 +9,7 @@ import Functions as fn
 import encrypter as en
 en.decrypt_folder('pg_chk_fls')
 
+# this comment will be visible in the GitHub
 
 '''if open("pg_chk_fls/acc_us.txt").read() == '':
     os.remove("pg_chk_fls/acc_us.txt")
